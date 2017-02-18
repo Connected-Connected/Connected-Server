@@ -1,12 +1,16 @@
+<%@page import="activity.mainfragment.TmpFragment"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<div id="content">Å×½ºÆ® content</div>
-</body>
-</html>
+<%
+	String userToken = "test1";
+
+	
+	TmpFragment tmpFragment = new TmpFragment();
+
+	tmpFragment.setUser(userToken, "userid", "username", 10);
+	String jUser = tmpFragment.getUser(userToken);
+	
+
+%>
+
+<%= jUser %>
