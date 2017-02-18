@@ -1,27 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@page import="activity.mainfragment.TmpFragment"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="EUC-KR"%>
-<% 
-	String result = "";
-	String type = request.getParameter("dataType");
+<%
+	String userToken = request.getParameter("userToken");
 	
-	if(type != null)
+	TmpFragment tmpFragment = new TmpFragment();
+	
+	String jUser;
+	if(userToken == null)
 	{
-		if(type.equals("type1"))
-		{
-			result = "[{\"Data\" : \"type 1's data\" }]";
-		}
-		else if(type.equals("type2"))
-		{
-			result = "[{\"Data\" : \"type 2's data\" }]";
-		}
-		else
-		{
-			result = "[{\"Data\" : \"no data\" }]";
-		}
+		jUser = tmpFragment.getUser("token4");
 	}
 	else{
-		result = "[{\"Data\" : \"no data\" }]";
+		tmpFragment.setUser(userToken, "userid", "¾È³ç", 10);
+		jUser = tmpFragment.getUser(userToken);
 	}
+	
 %>
 
-<%= result%>
+<%= jUser %>

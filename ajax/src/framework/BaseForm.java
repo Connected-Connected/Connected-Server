@@ -140,22 +140,4 @@ public class BaseForm {
 	}
 	
 	
-	/*
-	  * 201
-	  * 김지광
-	  * error메세지를 Json으로 변환
-	  */
-	public String errorToJsonobject(String error, boolean isArray){
-					
-		StringBuffer sb = new StringBuffer();
-		if(isArray)
-			sb.append("[");
-		sb.append("{");				
-		sb.append("\"error\":");
-		sb.append("\""+error+"\"");
-		sb.append("}");
-		if(isArray)
-			sb.append("]");
-		return sb.toString();
-	}
 }
